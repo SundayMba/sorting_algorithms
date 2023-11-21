@@ -35,6 +35,8 @@ void quick_sort(int *array, size_t size)
 {
 	int end;
 
+	if (size < 2)
+		return;
 	end = (int)(size - 1);
 	handle_quick_sort(array, 0, end, size);
 }
