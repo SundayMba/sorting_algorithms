@@ -17,7 +17,6 @@ void handle_quick_sort(int *array, int start, int end, size_t size)
 	if (start < end)
 	{
 		pIndex = lomuto_partition(array, start, end, size);
-		print_array(array, size);
 		handle_quick_sort(array, start, pIndex - 1, size);
 		handle_quick_sort(array, pIndex + 1, end, size);
 	}
@@ -33,12 +32,9 @@ void handle_quick_sort(int *array, int start, int end, size_t size)
 
 void quick_sort(int *array, size_t size)
 {
-	int end;
-
 	if (size < 2)
 		return;
-	end = (int)(size - 1);
-	handle_quick_sort(array, 0, end, size);
+	handle_quick_sort(array, 0, size - 1, size);
 }
 
 /**
@@ -61,14 +57,22 @@ size_t lomuto_partition(int *array, int start, int end, size_t size)
 	{
 		if (array[i] <= pivot)
 		{
-			temp = array[pIndex];
-			array[pIndex] = array[i];
-			array[i] = temp;
-			pIndex++;
-			print_array(array, size);
+			if (i == pIndex || array[i] > array[pIndex])
+				pIndex++;
+			else
+			{
+				temp = array[pIndex];
+				array[pIndex] = array[i];
+				array[i] = temp;
+				print_array(array, size);
+				pIndex++;
+			}
 		}
 	}
+	if (pIndex == end)
+		return (pIndex);
 	array[end] = array[pIndex];
 	array[pIndex] = pivot;
+	print_array(array, size);
 	return (pIndex);
 }
