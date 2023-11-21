@@ -32,20 +32,7 @@ void handle_quick_sort(int *array, int start, int end, size_t size)
 
 void quick_sort(int *array, size_t size)
 {
-	int sorted, i;
-
-	sorted = 1;
 	if (size < 2)
-		return;
-	for (i = 0; i < (int)size - 1; i++)
-	{
-		if (array[i] > array[i + 1])
-		{
-			sorted = 0;
-			break;
-		}
-	}
-	if (sorted)
 		return;
 	handle_quick_sort(array, 0, size - 1, size);
 }
