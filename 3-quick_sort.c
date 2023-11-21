@@ -17,6 +17,8 @@ void handle_quick_sort(int *array, int start, int end, size_t size)
 	if (start < end)
 	{
 		pIndex = lomuto_partition(array, start, end, size);
+		if (pIndex == (int)size - 1)
+			return;
 		handle_quick_sort(array, start, pIndex - 1, size);
 		handle_quick_sort(array, pIndex + 1, end, size);
 	}
