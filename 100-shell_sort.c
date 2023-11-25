@@ -13,7 +13,7 @@ void shell_sort(int *array, size_t size_arr)
 	int size = (int)size_arr;
 	int *sequence;
 
-	if (size_arr == 0 || size_arr == 1 || sorted(array, size_arr) == 1)
+	if (size_arr == 0 || size_arr == 1)
 		return;
 	sequence = malloc(sizeof(int) * size);
 	knuth_sequence(sequence, size);
