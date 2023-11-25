@@ -13,7 +13,7 @@ void shell_sort(int *array, size_t size_arr)
 	int size = (int)size_arr;
 	int *sequence;
 
-	if (array == NULL || size == 0)
+	if (size_arr == 0 || size_arr == 1 || sorted(array, size_arr) == 1)
 		return;
 	sequence = malloc(sizeof(int) * size);
 	knuth_sequence(sequence, size);
@@ -62,4 +62,30 @@ void knuth_sequence(int *array, size_t size)
 		array[i] = gap;
 		gap = 3 * gap + 1;
 	}
+}
+
+/**
+ * sorted - check if array has been sorted already
+ * @array: array to check
+ * @size: size of the array
+ * Return: 1 - sorted, 0 -not sorted
+ */
+
+int sorted(int *array, size_t size)
+{
+	int sorted, n, i, j;
+
+	n = (int)size;
+	for (i = 0; i < n; i++)
+	{
+		sorted = 1;
+		for (j = 0; j < n - i - 1; j++)
+			if (array[j] > array[j + 1])
+				sorted = 0;
+		if (sorted)
+			return (1);
+		else
+			return (0);
+	}
+	return (0);
 }

@@ -31,5 +31,6 @@ void handle_quick_sort(int *array, int start, int end, size_t size);
 void knuth_sequence(int array[], size_t size);
 void shell_sort(int *array, size_t size);
 void counting_sort(int *array, size_t size);
+int sorted(int *array, size_t size);
 
 #endif
