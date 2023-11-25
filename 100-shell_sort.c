@@ -9,14 +9,15 @@
 
 void shell_sort(int *array, size_t size_arr)
 {
-	int k, i, j, temp, gap, end;
+	int k, i, j, temp, gap;
 	int size = (int)size_arr;
 	int *sequence;
 
+	if (array == NULL || size == 0)
+		return;
 	sequence = malloc(sizeof(int) * size);
 	knuth_sequence(sequence, size);
 	k = 0;
-	end = 0;
 	gap = sequence[k];
 	while (gap != 0)
 	{
@@ -24,7 +25,7 @@ void shell_sort(int *array, size_t size_arr)
 		{
 			for (j = gap; j < size; j++)
 			{
-				for (i = j - gap; i >= end; i = i - gap)
+				for (i = j - gap; i >= 0; i = i - gap)
 				{
 					if (array[i + gap] < array[i])
 					{
