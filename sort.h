@@ -28,5 +28,7 @@ void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
 size_t lomuto_partition(int *array, int start, int end, size_t size);
 void handle_quick_sort(int *array, int start, int end, size_t size);
+void knuth_sequence(int array[], size_t size);
+void shell_sort(int *array, size_t size);
 
 #endif
